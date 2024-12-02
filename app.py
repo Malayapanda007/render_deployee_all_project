@@ -7,6 +7,7 @@ from nltk.stem import PorterStemmer
 
 # Download necessary NLTK data
 nltk.download('punkt')
+nltk.download('punkt_tab')
 nltk.download('stopwords')
 
 # Load the trained model
