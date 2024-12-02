@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Spam Classifier</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #1e272e; /* Bold dark background */
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: white;
+        }
+
+        #classifier-container {
+            background: #ffffff;
+            max-width: 500px;
+            width: 100%;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #ff4757;
+        }
+
+        textarea {
+            width: 100%;
+            height: 150px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        textarea:focus {
+            border-color: #ff4757;
+            outline: none;
+            box-shadow: 0 0 8px rgba(255, 71, 87, 0.5);
+        }
+
+        button {
+            background-color: #ff4757;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #e84152;
+            transform: translateY(-2px);
+        }
+
+        /* Enhanced styling for prediction box */
+        h3 {
+            margin-top: 20px;
+            font-size: 18px;
+            padding: 15px;
+            border-radius: 8px;
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            color: white;  /* Text color */
+            font-weight: bold;
+        }
+
+        /* Style for 'Spam' result */
+        .spam {
+            background-color: #ff6b81; /* Red for Spam */
+            box-shadow: 0 4px 8px rgba(255, 0, 0, 0.3);
+        }
+
+        /* Style for 'Not Spam' result */
+        .not-spam {
+            background-color: #48c9b0; /* Green for Not Spam */
+            box-shadow: 0 4px 8px rgba(0, 255, 0, 0.3);
+        }
+
+        @media (max-width: 600px) {
+            #classifier-container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 22px;
+            }
+
+            button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="classifier-container">
+        <h1>Email Spam Classifier</h1>
+        <form action="/predict" method="POST">
+            <textarea name="message" placeholder="Write your message here..."></textarea>
+            <br>
+            <button type="submit">Predict</button>
+        </form>
+        <!-- Conditional classes for spam and not spam prediction -->
+        <h3 class="{{ 'spam' if prediction_text == 'Spam' else 'not-spam' }}">{{ prediction_text if prediction_text else 'Please enter a message to predict.' }}</h3>
+    </div>
+</body>
+</html>
