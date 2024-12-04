@@ -1,21 +1,85 @@
-from flask import Flask, request, render_template
+from flask import Flask,render_template,request,redirect
 import pickle
 import string
 import nltk
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
 
+
+from db import Database
+# import prediction
+
+dbo=Database()
+
+
+app=Flask(__name__)
+
+@app.route('/')
+def index():
+    return render_template('login.html')
+
+@app.route('/registration')
+def registration(): 
+    return render_template('registration.html')
+
+
+@app.route('/perform_registration', methods=['POST'])
+def perform_registration(): 
+    name = request.form.get('name')
+    email = request.form.get('email')
+    password = request.form.get('password')
+
+    response=dbo.insert(name,email,password)
+
+    if response:
+        return render_template('login.html',message='Registration Successful')
+    else:
+        return render_template('registration.html',message='Email Already Exist')
+
+
+
+@app.route('/perform_login', methods=['POST'])
+def perform_login():
+    email = request.form.get('email')
+    password = request.form.get('password')
+
+    response=dbo.search(email,password)
+
+    if response:
+        return redirect('/profile')
+    else:
+        return render_template('login.html',message='Incorrect Email/password')
+
+@app.route('/profile')
+def profile():
+    return render_template('home.html')
+
+
+
+@app.route('/email_spam')
+def email_spam(): 
+    return redirect('/spam_sms')
+
+@app.route('/spam_sms')
+def spam_sms():
+    return render_template('email_spam.html')
+
+
+
+
+
+
 # Download necessary NLTK data
-nltk.download('punkt')
-nltk.download('punkt_tab')
-nltk.download('stopwords')
+# nltk.download('punkt')
+# nltk.download('punkt_tab')
+# nltk.download('stopwords')
 
 # Load the trained model
 tfidf = pickle.load(open('vectorizer.pkl','rb'))
 model = pickle.load(open('model.pkl','rb'))
 
 # Initialize the Flask app
-app = Flask(__name__)
+
 
 # Initialize the PorterStemmer
 ps = PorterStemmer()
@@ -47,9 +111,7 @@ def transform_text(text):
 
     return " ".join(y)  # Return the preprocessed text
 
-@app.route('/')
-def home():
-    return render_template('index.html')
+
 
 @app.route('/predict', methods=['POST'])
 def predict():
@@ -69,7 +131,10 @@ def predict():
     
     # Render the prediction result
     
-    return render_template('index.html', prediction_text='Prediction: {}'.format(result))
+    return render_template('email_spam.html', prediction_text='Prediction: {}'.format(result))
 
 if __name__ == "__main__":
+
     app.run(debug=True)
+
+

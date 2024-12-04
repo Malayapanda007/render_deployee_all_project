@@ -1,0 +1,111 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #ffffff;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 350px;
+    margin: 20px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.login-form h1 {
+    margin-bottom: 20px;
+    font-size: 26px;
+    text-align: center;
+    color: #333333;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #333333;
+}
+
+.input-group input {
+    width: 95%; /* Reduced width slightly */
+    padding: 10px;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #333333;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: scale(1.03);
+}
+
+p {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #333333;
+}
+
+p a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+p a:hover {
+    color: #0056b3;
+    text-shadow: 0 0 5px #007bff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .login-container {
+        padding: 15px;
+    }
+
+    .login-form h1 {
+        font-size: 22px;
+    }
+}
+
+
+/* Message styling */
+.message {
+    text-align: center; /* Center the message */
+    color: #341db5; /* Green color for the message */
+    font-size: 14px; /* Increased font size */
+    font-weight: bold; /* Make the message bold */
+    margin-top: 20px; /* Add space above the message */
+    padding: 10px; /* Add padding around the message */
+    background-color: rgba(0, 123, 255, 0.1); /* Light blue background for emphasis */
+    border-radius: 5px; /* Rounded corners for the background */
+}

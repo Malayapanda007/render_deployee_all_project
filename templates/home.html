@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Our AI Systems</title>
+    <style>
+        /* Global styles */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(45deg, #6a11cb, #2575fc);
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* Main content area */
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            flex: 1;
+            padding: 20px;
+            text-align: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        /* Options container */
+        .options {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            width: 100%;
+        }
+
+        .option-box {
+            width: 100%;
+            max-width: 300px;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin: 20px;
+        }
+
+        .option-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .option-btn {
+            padding: 18px 30px;
+            font-size: 20px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .option-btn:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        .option-btn:active {
+            transform: scale(1.02);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            font-size: 14px;
+            margin-top: 30px;
+        }
+
+        /* Responsive Design for different screen sizes */
+
+        /* Tablet and mobile view (max-width: 1024px) */
+        @media (max-width: 1024px) {
+            .options {
+                flex-direction: column; /* Stack option boxes vertically */
+                align-items: center;
+            }
+
+            .option-box {
+                width: 80%; /* Option boxes take up 80% of screen width */
+            }
+        }
+
+        /* Mobile view (max-width: 768px) */
+        @media (max-width: 768px) {
+            header {
+                font-size: 20px;
+                padding: 15px 0;
+            }
+
+            h1 {
+                font-size: 28px;
+                margin-bottom: 20px;
+            }
+
+            .option-btn {
+                font-size: 18px; /* Smaller button text */
+            }
+        }
+
+        /* Small screen mobile (max-width: 480px) */
+        @media (max-width: 480px) {
+            .option-btn {
+                font-size: 16px;
+                padding: 15px 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+                margin-bottom: 15px;
+            }
+
+            footer {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        Malaya Panda
+    </header>
+
+    <!-- Main content -->
+    <div class="main-content">
+        <h1>Welcome Let's see My Projects</h1>
+        <div class="options">
+            <div class="option-box">
+                <a href="/email_spam">
+                    <button class="option-btn">Email Spam Classifier</button>
+                </a>
+                
+            </div>
+            <div class="option-box">
+                <a href="/movie_recommendation"><button class="option-btn">Movie Recommendation System</button></a>
+            </div>
+            <div class="option-box">
+                <a href="/project_3"><button class="option-btn">Project 3</button></a>
+            </div>
+            <div class="option-box">
+                <a href="/project_4"><button class="option-btn">Project 4</button></a>
+            </div>
+            <div class="option-box">
+                <a href="/project_5"><button class="option-btn">Project 5</button></a>
+            </div>
+            <div class="option-box">
+                <a href="/project_6"><button class="option-btn">Project 6</button></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2024 Our My Systems. All Rights Reserved.
+    </footer>
+
+</body>
+</html>
