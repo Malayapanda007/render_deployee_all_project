@@ -70,9 +70,9 @@ def spam_sms():
 
 
 # Download necessary NLTK data
-# nltk.download('punkt')
-# nltk.download('punkt_tab')
-# nltk.download('stopwords')
+nltk.download('punkt')
+nltk.download('punkt_tab')
+nltk.download('stopwords')
 
 # Load the trained model
 tfidf = pickle.load(open('vectorizer.pkl','rb'))
